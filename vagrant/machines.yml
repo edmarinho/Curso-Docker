@@ -1,0 +1,20 @@
+- name: docker-master
+  cpus: 1
+  memory: 2048
+  hostname: docker-master.lab.com
+  ip: 192.168.66.10
+  sistema: ubuntu/bionic64
+
+- name: docker-worker01
+  cpus: 1
+  memory: 1024
+  hostname: docker-worker01.lab.com
+  ip: 192.168.66.20
+  sistema: ubuntu/bionic64
+
+- name: docker-worker02
+  cpus: 1
+  memory: 1024
+  hostname: docker-worker02.lab.com
+  ip: 192.168.66.30
+  sistema: ubuntu/bionic64
