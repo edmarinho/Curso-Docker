@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Curso Docker</title>
+  </head>
+  <body>
+          <p><strong>Curso Docker</strong><br>Da imagem ao cluster.</p>
+  </body>
+</html>
+
+
+---
+FROM ubuntu
+
+RUN apt update && apt install vim -y
+
+docker build -t cursodocker:01 .
+
+docker container run -it -P cursodocker:01
+
+
+---
+FROM ubuntu
+
+WORKDIR /curso_docker
+
+RUN apt update && apt install vim -y
+
+docker build -t cursodocker:02 .
+docker container run -it -P cursodocker:02
+
+---
+FROM ubuntu
+
+WORKDIR /curso_docker
+
+RUN apt update && apt install vim -y
+
+COPY index.html index.html
+
+docker build --no-cache -t cursodocker:03 .
+docker container run -it -P cursodocker:03
+
+---
+
+FROM ubuntu
+
+WORKDIR /curso_docker
+
+RUN apt update && apt install vim -y
+
+COPY index.html /index.html
+
+EXPOSE 80
+
+docker build -t cursodocker:04 .
+docker container run -it -P cursodocker:04
+
+---
+
+FROM ubuntu
+
+ENV CURSO docker
+
+WORKDIR /curso_docker
+
+RUN apt update && apt install vim -y
+
+COPY index.html /index.html
+
+EXPOSE 80
+
+docker build -t cursodocker:05 .
+docker container run -it -P cursodocker:05
+
+---
+
+FROM nginx
+
+ENV CURSO docker
+
+RUN apt update && apt install vim -y
+
+COPY index.html /usr/share/nginx/html/
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
+docker build -t cursodocker:06 .
+docker container run -it -P cursodocker:06
+
+
+---
+
+FROM nginx
+
+ENV CURSO docker
+
+RUN apt update && apt install vim -y
+
+COPY index.html /usr/share/nginx/html/
+
+EXPOSE 80
+
+ENTRYPOINT ["nginx"]
+
+CMD ["-g", "daemon off;"]
+
+docker build -t cursodocker:07 .
+docker container run -it -P cursodocker:06
+
+
+---
+
+FROM ubuntu AS build
+
+ENV CURSO docker
+
+WORKDIR /curso_docker
+
+RUN apt update && apt install vim -y
+
+COPY index.html index.html
+
+FROM nginx
+
+ENV CURSO docker
+
+COPY --from=build /curso_docker/index.html /usr/share/nginx/html/
+
+EXPOSE 80
+
+ENTRYPOINT ["nginx"]
+
+cmd ["-g", "daemon off;"]
+
+docker build -t cursodocker:07 .
+docker container run -it -P cursodocker:07
