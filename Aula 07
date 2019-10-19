@@ -1,0 +1,25 @@
+docker container run -d -p 80:80 nginx
+
+docker container inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+
+docker container rm -f 
+
+docker network ls
+
+docker network create --driver=bridge --subnet=192.168.0.0/24 nginx_n
+-d bridge
+--driver=bridge
+--gateway
+--ip-range
+
+docker container run --network=nginx_n -d -p 80:80 nginx
+
+docker container ls
+
+docker container inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+
+docker network create --driver=bridge --subnet=10.0.0.0/8 nginx_2
+
+docker network connect nginx_2 
+
+docker network inspect
