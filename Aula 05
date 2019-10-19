@@ -1,0 +1,33 @@
+docker container ls
+
+docker container run -d nginx
+-d=detach
+
+docker continer rm 
+
+docker container run -it ubuntu
+-t=tty -i=interactive
+
+docker container ls
+
+docker container stop 
+
+docker container start
+
+docker container run -d -p 80:80 nginx
+-p=publish
+
+docker container run -d -P nginx
+-P=publish-all
+
+docker container attach
+
+docker container exec -it
+
+docker container run -d -p 9090:80 -m 256m nginx
+
+docker container run -d -p 9090:80 --memory-reservation=512m nginx
+
+docker container run -d -p 9090:80 --memory-reservation=256m --memory=512m nginx
+
+docker container run -d -p 9090:80 --cpus 0.5 nginx
