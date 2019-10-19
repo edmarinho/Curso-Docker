@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Curso Docker</title>
+  </head>
+  <body>
+    <p><strong>Curso Docker </strong>- Da imagem ao cluster.</p>
+  </body>
+</html>
+
+docker container run -v /nginx_b:/usr/share/nginx/html -d -p 80:80 nginx
+
+docker container run --mount src=/nginx_b,dst=/usr/share/nginx/html -d -p 80:80 nginx
+origem=source,src
+destino=destination,dst,target
+
+docker volume ls
+
+docker volume create nginx_v
+
+docker volume ls
+
+docker container run -v nginx_v:/usr/share/nginx/html -d -p 80:80 nginx
+
+docker container run --mount src=nginx_v,dst=/usr/share/nginx/html -d -p 80:80 nginx
+
+docker volume create nginx_2
+
+docker volume create nginx_3
+
+docker volume create nginx_4
+
+docker volume prune
+
+docker volume rm
+
+docker volume inspect
