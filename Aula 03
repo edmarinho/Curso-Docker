@@ -22,9 +22,9 @@ apt-get update
 
 apt-get install docker-ce docker-ce-cli containerd.io
 
-apt install curl -y
-
 docker version
 
 # Instalação do docker CE no Ubuntu (forma simplificada)
+apt-get update
+
 curl -sSL https://get.docker.com/ | sh
