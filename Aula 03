@@ -1,5 +1,7 @@
+# Site do docker com procedimentos de instalação
 https://docs.docker.com/install/
 
+# Instalação do docker CE no Ubuntu
 apt-get update
 
 apt-get install \
@@ -9,12 +11,12 @@ curl \
 gnupg2 \
 software-properties-common
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-add-apt-repository \
-"deb [arch=amd64] https://download.docker.com/linux/debian \
-$(lsb_release -cs) \
-stable"
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 
 apt-get update
 
@@ -22,4 +24,7 @@ apt-get install docker-ce docker-ce-cli containerd.io
 
 apt install curl -y
 
+docker verson
+
+# Instalação do docker CE no Ubuntu (forma simplificada)
 curl -sSL https://get.docker.com/ | sh
