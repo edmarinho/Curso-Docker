@@ -1,1 +1,33 @@
+docker image ls
 
+docker image pull ubuntu
+
+docker image ls
+
+docker image pull debian
+
+docker image ls
+
+docker image pull alpine
+
+docker image ls
+
+docker image rm IMAGE_ID
+
+docker login
+
+usuário/nome_da_image:tag
+
+docker image tag alpine:latest edmarinho/cursodocker:01
+
+docker image push edmarinho/cursodocker:01
+
+docker image ls
+
+docker image rm edmarinho/cursodocker:01
+
+docker image rm alpine:latest edmarinho/cursodocker:01
+
+docker image ls
+
+docker image pull edmarinho/cursodocker:01
