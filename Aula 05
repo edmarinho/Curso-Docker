@@ -26,8 +26,14 @@ docker container exec -it
 
 docker container run -d -p 9090:80 -m 256m nginx
 
-docker container run -d -p 9090:80 --memory-reservation=512m nginx
+docker container stats
+
+docker container rm -f
 
 docker container run -d -p 9090:80 --memory-reservation=256m --memory=512m nginx
+
+docker container stats
+
+docker container rm -f
 
 docker container run -d -p 9090:80 --cpus 0.5 nginx
