@@ -1,3 +1,9 @@
+mkdir /nginx_b
+
+cd /nginx_b
+
+vim index.html
+
 <!doctype html>
 <html>
   <head>
@@ -10,11 +16,7 @@
 
 docker container run -v /nginx_b:/usr/share/nginx/html -d -p 80:80 nginx
 
-docker container run --mount src=/nginx_b,dst=/usr/share/nginx/html -d -p 80:80 nginx
-origem=source,src
-destino=destination,dst,target
-
-docker volume ls
+dockerdocker volume ls
 
 docker volume create nginx_v
 
@@ -23,6 +25,8 @@ docker volume ls
 docker container run -v nginx_v:/usr/share/nginx/html -d -p 80:80 nginx
 
 docker container run --mount src=nginx_v,dst=/usr/share/nginx/html -d -p 80:80 nginx
+origem=source,src
+destino=destination,dst,target
 
 docker volume create nginx_2
 
