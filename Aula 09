@@ -1,0 +1,27 @@
+mkdir /aula_09
+
+cd /aula_09
+
+docker image pull ubuntu
+
+docker image history ubuntu:latest
+
+docker image pull nginx
+
+docker image history nginx:latest
+
+docker image pull edmarinho/cursodocker:01
+
+docker image history edmarinho/cursodocker:01
+
+docker image save edmarinho/cursodocker:01 > cursodocker_01.tar
+
+docker image save --output cursodocker_02.tar edmarinho/cursodocker:01
+
+docker image save -o cursodocker_03.tar edmarinho/cursodocker:01
+
+docker save edmarinho/cursodocker:01 | gzip > cursodocker_04.tar.gz
+
+docker load < cursodocker_04.tar.gz
+
+docker image prune
