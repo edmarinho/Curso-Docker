@@ -1,6 +1,6 @@
 docker container run -d -p 80:80 nginx
 
-docker container inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+docker container inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' CONTAINER_ID
 
 docker container rm -f 
 
@@ -16,10 +16,12 @@ docker container run --network=nginx_n -d -p 80:80 nginx
 
 docker container ls
 
-docker container inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+docker container inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' CONTAINER_ID
 
 docker network create --driver=bridge --subnet=10.0.0.0/8 nginx_2
 
-docker network connect nginx_2 
+docker network connect nginx_2 CONTAINER_ID
 
 docker network inspect
+
+docker network rm nginx_2
