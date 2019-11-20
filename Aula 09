@@ -24,4 +24,6 @@ docker save edmarinho/cursodocker:01 | gzip > cursodocker_04.tar.gz
 
 docker load < cursodocker_04.tar.gz
 
-docker image prune
+docker container rm -f $(docker container ls -q -a)
+
+docker image prune -a -f
