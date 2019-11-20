@@ -1,0 +1,62 @@
+docker container run -d -p 80:80 --name nginx nginx
+
+docker container exec -it nginx bash
+
+echo "Curso docker - Da image ao cluster" > /usr/share/nginx/html/index.html
+
+docker container commit nginx curdodocker:08
+
+docker container rm -f nginx
+
+docker container ls
+
+docker container run -d -p 80:80 curdodocker:08
+
+docker container ls
+
+docker container stop curdodocker:08
+
+docker container run -d ubuntu
+docker container run -d ubuntu
+docker container run -d ubuntu
+docker container run -d ubuntu
+
+docker container ls
+
+docker container ls -a
+
+docker container prune -f
+
+docker container run -d -p 80:80 --name nginx nginx
+
+docker container inspect nginx
+
+docker container inspect --format='{{.Config.Image}}' nginx
+
+docker container inspect --format='{{.Config.Env}}' nginx
+
+docker container inspect --format='{{.HostConfig.PortBindings}}' nginx
+
+docker container inspect --format='{{.NetworkSettings.Ports}}' nginx
+
+docker container inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nginx
+
+docker container logs nginx
+
+docker container logs -f nginx
+
+docker container rm -f nginx
+
+docker container run -d -p 80:80 -p 443:443 --name nginx nginx
+
+docker container port nginx
+
+docker container exec -it nginx bash
+
+docker container stats nginx
+
+apt update && apt install stress
+
+stress --vm 1 --cpu 1 --vm-bytes 128m
+
+docker container top nginx
