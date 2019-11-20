@@ -1,1 +1,38 @@
 
+docker node ls
+
+docker node rm NODE_ID
+
+docker node ls
+
+docker node promote NODE_HOSTNAME
+
+docker node ls
+
+docker node demote NODE_HOSTNAME
+
+docker service create --name nginx -p 80:80 --replicas=5 nginx
+
+docker node ps node1
+
+docker node ps node2
+
+docker node ps node3
+
+docker node inspect node2
+
+docker node update --availability drain node2
+
+docker node ps node1
+
+docker node ps node2
+
+docker node ps node3
+
+docker node update --availability active node2
+
+docker node ps node1
+
+docker node ps node2
+
+docker node ps node3
