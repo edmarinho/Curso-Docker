@@ -1,1 +1,44 @@
 
+docker service ls
+
+docker service create --name website nginx
+
+docker service ls
+
+docker service create --name website2 --replicas=5 nginx
+
+docker service ls
+
+docker service rm website2
+
+docker service ls
+
+docker service ps website
+
+docker service scale website=5
+
+docker service ps website
+
+docker service update --image httpd website
+
+docker service ps website
+
+docker service rollback website
+
+docker service ps website
+
+docker service logs website
+
+docker service logs -f website
+
+docker service inspect website
+
+docker service rm website
+
+docker service create --name website -p 8080:80 nginx
+
+docker service create --name website2 --publish 8081:80 nginx
+
+docker service create --name website3 -p 8080:80 --mount type=volume,source=website,destination=/usr/share/nginx/html nginx
+
+docker service create --name website3 -p 8080:80 --mount type=bind,source=/tmp,destination=/usr/share/nginx/html nginx
